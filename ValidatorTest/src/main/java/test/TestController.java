@@ -17,10 +17,13 @@ public class TestController {
     public TestEntity validityTest(@Valid @RequestBody TestEntity testEntity) {
         return testService.save(testEntity);
     }
-
     @PostMapping("${request.mapping}")
     public TestEntity funTest(@Valid @RequestBody TestEntity testEntity) {
         return testService.save(testEntity);
+    }
+    @GetMapping("${request.mapping}")
+    public List<TestEntity> funTest() {
+        return testService.get();
     }
 
     @GetMapping

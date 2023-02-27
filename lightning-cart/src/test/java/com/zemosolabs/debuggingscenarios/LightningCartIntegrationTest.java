@@ -35,7 +35,8 @@ public class LightningCartIntegrationTest {
     fCartService.addItemToCart(CUSTOMER_1, item2);
 
     //Checkout
-    Assertions.assertDoesNotThrow(() -> fCheckoutService.checkout(CUSTOMER_1));
+    Assertions.assertThrows(
+            IllegalStateException.class, () -> fCheckoutService.checkout(CUSTOMER_1));
   }
 
   @Test

@@ -1,0 +1,8 @@
+test/TestApplication.class
+test/TestController.class
+test/validation/NonNegative.class
+test/TestEntity.class
+test/TestRepository.class
+test/validation/NonNegativeValidator.class
+test/TestServiceImpl.class
+test/TestService.class

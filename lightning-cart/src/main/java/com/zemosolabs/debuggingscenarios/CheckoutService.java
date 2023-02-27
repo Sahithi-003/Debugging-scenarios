@@ -23,15 +23,15 @@ public class CheckoutService implements ICheckoutService{
   @Override
   public void checkout(final UUID customerId) {
     Preconditions.checkNotNull(customerId, "CustomerId");
-    var cart = fCartService.getCart(customerId);
-    Preconditions.checkState(
-            cart != null && !cart.isEmpty(),
-            "Customer doesn't have items in his cart.");
-    var amount = cart.keySet().stream()
-            .filter(itemKey -> fItemCatalogue.getItem(itemKey).isPresent())
-            .map(itemKey -> fItemCatalogue.getItem(itemKey).get().getCost() * cart.get(itemKey))
-            .reduce(0.0D, Double::sum);
-    fBalanceService.deductBalance(customerId, amount);
-    fCartService.clearCart(customerId);
+      var cart = fCartService.getCart(customerId);
+      Preconditions.checkState(
+              cart != null && !cart.isEmpty(),
+              "Customer doesn't have items in his cart.");
+      var amount = cart.keySet().stream()
+              .filter(itemKey -> fItemCatalogue.getItem(itemKey).isPresent())
+              .map(itemKey -> fItemCatalogue.getItem(itemKey).get().getCost() * cart.get(itemKey))
+              .reduce(0.0D, Double::sum);
+      fBalanceService.deductBalance(customerId, amount);
+      fCartService.clearCart(customerId);
   }
 }

@@ -25,7 +25,7 @@ chatRoom.addEventListener('change', e => {
 		})
 	else
 		socket.off('chat-room-1').on('chat-room-2', message => {
-			addMessage(message)
+			// addMessage(message)
 		})
 });
 

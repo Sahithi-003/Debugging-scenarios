@@ -22,17 +22,18 @@
   display: none;
 }
 
-/*
+
 .row_poster:hover {
   transform: scale(1.11);
 }
 
-*/
+
 
 .row_posterLarge {
   max-height: 250px;
 }
 
 .row_posterLarge:hover {
+  transition: transform 450ms;
   transform: scale(1.09);
 }
